@@ -1,1 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Garden Spa Room | Wellness in the Garden</title>
+<meta name="description" content="The Garden Spa Room — North East Melbourne Day Spa. Beauty therapy, massage, pregnancy massage, Reiki and Japanese therapy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
+<style>
+:root {
+  --green:#5d765f;
+  --deep-green:#314737;
+  --sage:#aeb9a5;
+  --cream:#f5f1e8;
+  --paper:#fbfaf6;
+  --taupe:#d9d2c7;
+  --brown:#8a7969;
+  --text:#263329;
+  --white:#ffffff;
+  --shadow:0 18px 50px rgba(49,71,55,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--paper);color:var(--text);line-height:1.65}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+.container{width:min(1160px,calc(100% - 40px));margin:auto}
+.announcement{background:var(--deep-green);color:#f7f4eb;text-align:center;padding:9px 15px;font-size:11px;letter-spacing:1.7px;text-transform:uppercase}
+header{position:sticky;top:0;z-index:1000;background:rgba(251,250,246,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(49,71,55,.12)}
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.logo{text-align:center;line-height:.85}
+.logo .main,.logo .sub{display:block;font-family:"Cormorant Garamond",serif;font-size:27px;letter-spacing:3.5px;color:var(--green)}
+.logo small{display:block;margin-top:9px;font-size:7px;letter-spacing:3px;color:var(--brown)}
+nav{display:flex;align-items:center;gap:28px}
+nav a{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#47574b;transition:.25s}
+nav a:hover{color:var(--green)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.ig-btn{color:var(--green)}
+.ig-btn:hover{background:var(--green);color:white}
+.menu{display:none;background:none;border:0;font-size:28px;color:var(--deep-green);cursor:pointer}
+.mobile-nav{display:none;position:fixed;top:72px;left:0;right:0;background:var(--paper);z-index:999;padding:20px;border-bottom:1px solid #ddd}
+.mobile-nav a{display:block;padding:13px;font-size:13px;border-bottom:1px solid #e5e1d8}
+.mobile-nav .mobile-book{background:var(--green);color:white;text-align:center;margin-top:10px;border:0}
+.hero{min-height:720px;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(37,55,43,.8),rgba(37,55,43,.35),rgba(37,55,43,.08)),url("https://images.unsplash.com/photo-1675016405470-da1af15be648?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center/cover}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 45%,transparent 0 18%,rgba(0,0,0,.08) 55%,rgba(0,0,0,.2))}
+.hero-content{position:relative;z-index:2;width:min(1160px,calc(100% - 40px));color:white}
+.kicker{font-size:11px;letter-spacing:4px;text-transform:uppercase;margin-bottom:15px}
+.hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(64px,9vw,112px);font-weight:500;line-height:.82;max-width:720px}
+.hero p{font-size:14px;letter-spacing:2.5px;margin:28px 0;text-transform:uppercase}
+.hero .book-btn{border-color:white;background:#eef0e8;color:var(--deep-green)}
+.profile{background:var(--paper);padding:78px 0 50px;border-bottom:1px solid #e7e2d8}
+.profile-grid{display:grid;grid-template-columns:180px 1fr;gap:45px;align-items:center}
+.profile-pic{width:180px;height:180px;border-radius:50%;padding:10px;background:#f1eee6;border:1px solid #ddd6ca;box-shadow:var(--shadow);display:grid;place-items:center;text-align:center}
+.profile-pic span{font-family:"Cormorant Garamond",serif;color:var(--green);font-size:23px;line-height:.85}
+.profile-top{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.profile h2{font-size:29px;font-weight:600}
+.handle{color:#718174;font-size:13px}
+.profile-stats{display:flex;gap:26px;margin:9px 0;font-size:13px}
+.profile-desc{max-width:760px;font-size:13px;color:#526055}
+.profile-desc strong{color:var(--green)}
+.profile-actions{margin-top:17px;display:flex;gap:10px;flex-wrap:wrap}
+.profile-actions a{padding:10px 20px;border-radius:5px;background:var(--green);color:white;font-size:12px}
+.profile-actions a.secondary{background:#ebe8df;color:var(--text)}
+.intro{padding:100px 0;background:var(--cream)}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--brown);margin-bottom:12px}
+.section-title{font-family:"Cormorant Garamond",serif;font-size:65px;line-height:.9;font-weight:500;color:var(--deep-green);margin-bottom:22px}
+.intro p{font-size:14px;color:#59655b;max-width:560px}
+.intro p+p{margin-top:17px}
+.intro-photo{min-height:540px;position:relative;background:linear-gradient(rgba(49,71,55,.06),rgba(49,71,55,.06)),url("https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1000&q=85") center/cover}
+.intro-photo::before{content:"";position:absolute;inset:20px;border:1px solid rgba(255,255,255,.65)}
+.quote{margin-top:28px;border-left:2px solid var(--green);padding-left:17px;font-family:"Cormorant Garamond",serif;font-size:23px;color:var(--green)}
+.services{padding:100px 0;background:#e9eee6}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:45px}
+.section-head p{max-width:450px;font-size:13px;color:#647067}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:white;box-shadow:0 7px 30px rgba(50,65,53,.08);overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
+.card-img{height:290px;background-position:center;background-size:cover}
+.card:nth-child(1) .card-img{background-image:url("https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")}
+.card:nth-child(2) .card-img{background-image:url("https://images.unsplash.com/photo-1745327883508-b6cd32e5dde5?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")}
+.card:nth-child(3) .card-img{background-image:url("https://plus.unsplash.com/premium_photo-1661434642905-27ad958bab4a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")}
+.card:nth-child(4) .card-img{background-image:url("https://images.unsplash.com/photo-1519824145371-296894a0daa9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")}
+.card:nth-child(5) .card-img{background-image:url("https://images.unsplash.com/photo-1598901865264-4f5f30954532?q=80&w=1197&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")}
+.card:nth-child(6) .card-img{background-image:url("https://images.unsplash.com/photo-1611073615830-9f76902c10fe?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")}
+.card-body{padding:22px}
+.card h3{font-family:"Cormorant Garamond",serif;font-size:29px;color:var(--deep-green);line-height:1.05}
+.card p{font-size:11px;color:#6b756d;margin-top:8px}
+.instagram{padding:100px 0;background:var(--paper)}
+.instagram-head{text-align:center;max-width:680px;margin:0 auto 45px}
+.instagram-head h2{font-family:"Cormorant Garamond",serif;font-size:65px;font-weight:500;line-height:.9;color:var(--deep-green)}
+.instagram-head p{font-size:13px;color:#667169;margin:16px auto 23px}
+.insta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.insta-tile{aspect-ratio:1;position:relative;overflow:hidden;background:var(--taupe)}
+.insta-tile::after{content:"";position:absolute;inset:0;background:rgba(49,71,55,0);transition:.25s}
+.insta-tile:hover::after{background:rgba(49,71,55,.18)}
+.insta-tile div{width:100%;height:100%;background-size:cover;background-position:center;transition:.4s}
+.insta-tile:hover div{transform:scale(1.05)}
+.insta-tile:nth-child(1) div{background-image:url("https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=800&q=85")}
+.insta-tile:nth-child(2) div{background-image:url("https://images.unsplash.com/photo-1544472991-1324437fe348?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")}
+.insta-tile:nth-child(3) div{background-image:url("https://images.unsplash.com/photo-1572274679890-ddb14d22553e?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")}
+.insta-tile:nth-child(4) div{background-image:url("https://images.unsplash.com/photo-1592494066226-e5fd3904b25c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")}
+.insta-tile:nth-child(5) div{background-image:url("https://images.unsplash.com/photo-1601428636031-7f1610200aee?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")}
+.insta-tile:nth-child(6) div{background-image:url("https://images.unsplash.com/photo-1620733719521-fa0625956f5c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")}
+.insta-tile:nth-child(7) div{background-image:url("https://images.unsplash.com/photo-1783066070372-a1b0fffb7c53?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")}
+.insta-tile:nth-child(8) div{background-image:url("https://images.unsplash.com/photo-1624454002302-36b824d7bd0a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")}
+.info{background:var(--deep-green);color:white;padding:65px 0}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.info-box{text-align:center;padding:15px 30px;border-right:1px solid rgba(255,255,255,.2)}
+.info-box:last-child{border:0}
+.info-box h3{font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:500}
+.info-box p,.info-box a,.info-box address{font-size:12px;color:#dce3da;font-style:normal}
+footer{background:#223429;color:white;padding:60px 0 25px}
+.footer-grid{display:flex;justify-content:space-between;gap:40px;align-items:center}
+.footer-logo .main,.footer-logo .sub{color:white}
+.footer-logo small{color:#ccd6cc}
+.footer-ig a{border:1px solid rgba(255,255,255,.35);padding:10px 15px;font-size:11px}
+.footer-copy{font-size:10px;color:#bfcabe;margin-top:35px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);text-align:center}
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);background:var(--deep-green);color:white;padding:13px 20px;font-size:12px;opacity:0;pointer-events:none;transition:.3s;z-index:5000}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:900px){
+  nav{display:none}
+  .nav-actions .ig-btn{display:none}
+  .menu{display:block}
+  .profile-grid{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .profile-top{justify-content:center}
+  .profile-stats{justify-content:center}
+  .profile-desc{margin:auto}
+  .intro-grid{grid-template-columns:1fr;gap:45px}
+  .service-grid{grid-template-columns:1fr 1fr}
+  .info-grid{grid-template-columns:1fr}
+  .info-box{border-right:0;border-bottom:1px solid rgba(255,255,255,.2);padding:22px}
+  .info-box:last-child{border-bottom:0}
+  .footer-grid{flex-direction:column;text-align:center}
+  .mobile-nav.show{display:block}
+}
+@media(max-width:600px){
+  .container{width:min(100% - 28px,1160px)}
+  .nav{height:72px}
+  .logo .main,.logo .sub{font-size:21px;letter-spacing:2.5px}
+  .hero{min-height:650px}
+  .hero h1{font-size:67px}
+  .hero p{font-size:10px;letter-spacing:1.5px}
+  .section-title,.instagram-head h2{font-size:53px}
+  .section-head{display:block}
+  .section-head p{margin-top:15px}
+  .service-grid{grid-template-columns:1fr}
+  .insta-grid{grid-template-columns:repeat(2,1fr)}
+  .booking-form{grid-template-columns:1fr}
+  .full,.submit{grid-column:auto}
+  .intro-photo{min-height:400px}
+  .profile-pic{width:145px;height:145px}
+}
+</style>
+</head>
+
+<body>
+<div class="announcement">
+  Opening late 2026 ✦
+  Follow our journey on Instagram
+</div>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo" aria-label="The Garden Spa Room home">
+      <span class="main">THE GARDEN</span>
+      <span class="sub">SPA ROOM</span>
+      <small>WELLNESS IN THE GARDEN</small>
+    </a>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#instagram">Instagram</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="ig-btn" href="https://www.instagram.com/thegardensparoom/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+
+      <button class="menu" id="menuBtn" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false" type="button">☰</button>
+    </div>
+  </div>
+</header>
+
+<div id="mobileNav" class="mobile-nav">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#instagram">Instagram</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main id="home">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="kicker">North East Melbourne Day Spa</div>
+      <h1>Wellness<br>in the Garden</h1>
+      <p>Beauty · Massage · Reiki · Japanese Therapy</p>
+    </div>
+  </section>
+
+  <section class="profile">
+    <div class="container profile-grid">
+      <div class="profile-pic">
+        <span>
+          THE GARDEN<br>
+          SPA ROOM<br>
+          <small style="font-size:8px;letter-spacing:2px">WELLNESS IN THE GARDEN</small>
+        </span>
+      </div>
+
+      <div>
+        <div class="profile-top">
+          <h2>thegardensparoom</h2>
+          <span class="handle">@thegardensparoom</span>
+        </div>
+
+        <div class="profile-stats">
+          <span><strong>7</strong> posts</span>
+          <span><strong>37</strong> followers</span>
+          <span><strong>33</strong> following</span>
+        </div>
+
+        <div class="profile-desc">
+          <strong>Health / beauty</strong><br>
+          Diploma Qualified Beauty Therapist |
+          Pregnancy Massage Practitioner |
+          Reiki Practitioner |
+          Japanese Therapist<br>
+          📍 Greensborough, VIC<br>
+          Opening Late 2026 ✨
+        </div>
+
+        <div class="profile-actions">
+          <a href="https://www.instagram.com/thegardensparoom/" target="_blank" rel="noopener noreferrer">Follow on Instagram ↗</a>
+          <a class="secondary" href="https://www.instagram.com/thegardensparoom/" target="_blank" rel="noopener noreferrer">Message us on Instagram</a>
+          <a href="mailto:hello@thegardensparoom.com.au">Send Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro" id="about">
+    <div class="container intro-grid">
+      <div>
+        <div class="eyebrow">The Garden Spa Room</div>
+        <h2 class="section-title">A calm space<br>to feel restored.</h2>
+        <p>The Garden Spa Room is a North East Melbourne wellness space built around thoughtful treatments, calm surroundings and personalised care.</p>
+        <p>From massage and beauty therapy to Reiki and Japanese-inspired treatments, the aim is to create a peaceful experience where you can slow down and reconnect.</p>
+        <div class="quote">“Wellness in the garden.”</div>
+      </div>
+
+      <div class="intro-photo" role="img" aria-label="Relaxing spa treatment"></div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Treatments</div>
+          <h2 class="section-title">Services include</h2>
+        </div>
+        <p>Explore treatments designed around relaxation, beauty, massage and wellbeing. Contact us through Instagram for current treatment details and availability.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="card">
+          <div class="card-img"></div>
+          <div class="card-body">
+            <h3>Aromatherapy Massage</h3>
+            <p>Relaxing massage with an aromatic wellness focus.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img"></div>
+          <div class="card-body">
+            <h3>Deep Tissue Massage</h3>
+            <p>Focused massage for areas of muscular tension.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img"></div>
+          <div class="card-body">
+            <h3>Foot Treatment &amp; Massage</h3>
+            <p>A soothing treatment for tired feet.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img"></div>
+          <div class="card-body">
+            <h3>Reflexology Massage</h3>
+            <p>A gentle pressure-point focused treatment.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img"></div>
+          <div class="card-body">
+            <h3>Remedial Massage</h3>
+            <p>Targeted massage tailored to individual needs.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img"></div>
+          <div class="card-body">
+            <h3>Pregnancy Massage</h3>
+            <p>A gentle, calming massage experience.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="instagram" id="instagram">
+    <div class="container">
+      <div class="instagram-head">
+        <div class="eyebrow">@thegardensparoom</div>
+        <h2>Follow the journey</h2>
+        <p>Our Instagram is where we share the space, skincare tips, behind-the-scenes updates and the journey towards opening.</p>
+        <a class="ig-btn" href="https://www.instagram.com/thegardensparoom/" target="_blank" rel="noopener noreferrer">View Instagram ↗</a>
+      </div>
+
+      <div class="insta-grid">
+        <a class="insta-tile" href="https://www.instagram.com/thegardensparoom/" target="_blank" rel="noopener noreferrer"><div></div></a>
+        <a class="insta-tile" href="https://www.instagram.com/thegardensparoom/" target="_blank" rel="noopener noreferrer"><div></div></a>
+        <a class="insta-tile" href="https://www.instagram.com/thegardensparoom/" target="_blank" rel="noopener noreferrer"><div></div></a>
+        <a class="insta-tile" href="https://www.instagram.com/thegardensparoom/" target="_blank" rel="noopener noreferrer"><div></div></a>
+        <a class="insta-tile" href="https://www.instagram.com/thegardensparoom/" target="_blank" rel="noopener noreferrer"><div></div></a>
+        <a class="insta-tile" href="https://www.instagram.com/thegardensparoom/" target="_blank" rel="noopener noreferrer"><div></div></a>
+        <a class="insta-tile" href="https://www.instagram.com/thegardensparoom/" target="_blank" rel="noopener noreferrer"><div></div></a>
+        <a class="insta-tile" href="https://www.instagram.com/thegardensparoom/" target="_blank" rel="noopener noreferrer"><div></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="info" id="contact">
+    <div class="container info-grid">
+      <div class="info-box">
+        <h3>Opening</h3>
+        <p>Late 2026 ✦</p>
+      </div>
+
+      <div class="info-box">
+        <h3>Location</h3>
+        <address>Greensborough, VIC<br>North East Melbourne</address>
+      </div>
+
+      <div class="info-box">
+        <h3>Get in touch</h3>
+        <a href="mailto:hello@thegardensparoom.com.au">Send Email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <a href="#home" class="logo footer-logo">
+      <span class="main">THE GARDEN</span>
+      <span class="sub">SPA ROOM</span>
+      <small>WELLNESS IN THE GARDEN</small>
+    </a>
+
+    <div class="footer-ig">
+      <a href="https://www.instagram.com/thegardensparoom/" target="_blank" rel="noopener noreferrer">Instagram @thegardensparoom ↗</a>
+    </div>
+  </div>
+
+  <div class="container footer-copy">© 2026 The Garden Spa Room. All rights reserved.</div>
+</footer>
+
+<div class="toast" id="toast">Booking details copied — paste them into your Instagram message.</div>
+
+<script>
+(function () {
+  "use strict";
+
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileNav = document.getElementById("mobileNav");
+
+  if (!menuBtn || !mobileNav) return;
+
+  function setMenuOpen(isOpen) {
+    mobileNav.classList.toggle("show", isOpen);
+    menuBtn.textContent = isOpen ? "✕" : "☰";
+    menuBtn.setAttribute("aria-expanded", String(isOpen));
+    menuBtn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  }
+
+  menuBtn.addEventListener("click", function () {
+    const isOpen = menuBtn.getAttribute("aria-expanded") !== "true";
+    setMenuOpen(isOpen);
+  });
+
+  mobileNav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      setMenuOpen(false);
+    });
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") setMenuOpen(false);
+  });
+
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 900) setMenuOpen(false);
+  });
+
+  setMenuOpen(false);
+})();
+</script>
+
+</body>
+</html>
